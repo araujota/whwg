@@ -141,7 +141,8 @@ input::-webkit-inner-spin-button {
 
 #rulebox {
 	position: fixed;
-	left:13%;
+	left: 50%;
+	transform: translateX(-50%);
 	top: 25%;
 	display: flex;
 	text-align: center;

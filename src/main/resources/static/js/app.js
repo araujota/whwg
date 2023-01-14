@@ -41,13 +41,14 @@ async function validate(word) {
 	let start = word.slice(0,3)
 	let end = word.slice(word.length-3, word.length)
 	let newPrompt = prompt.innerHTML;
+	let valid = word.includes(newPrompt);
 	
 	let checkDict = await (fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word)
         .then(response => {
             return response.json();
         })
         .then(response => {
-            if ((!response.title) && (start !== newPrompt) && (end !== newPrompt)) {
+            if ((!response.title) && (start !== newPrompt) && (end !== newPrompt) && valid) {
 				input.style.color="#90EE90"
 				thisScore ++;
 				loadPrompt();
